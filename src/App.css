@@ -11,6 +11,37 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+<<<<<<< Updated upstream
+=======
+} */
+.App-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.App-items {
+  width: 40%;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+  padding-top: 30px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.App-loginsignup {
+  width: 70%;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+  padding-top: 100px;
+  padding-right: 16px;
+  padding-left: 16px;
+>>>>>>> Stashed changes
 }
 
 .App-header {
@@ -24,6 +55,28 @@
   color: white;
 }
 
+<<<<<<< Updated upstream
+=======
+.App-name{
+  width: 90%;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-end;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  font-family: Space Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 59px;
+  text-align: center;
+
+  color: #314455;
+}
+
+>>>>>>> Stashed changes
 .App-link {
   color: #61dafb;
 }
