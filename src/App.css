@@ -1,18 +1,23 @@
 .App {
   text-align: center;
+  background-color: #B1C4D7;
+
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  width: 8%;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+  padding-top: 30px;
+  padding-right: 16px;
+  padding-left: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/*@media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-<<<<<<< Updated upstream
-=======
 } */
 .App-content {
   display: flex;
@@ -38,14 +43,12 @@
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: flex-start;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-right: 16px;
   padding-left: 16px;
->>>>>>> Stashed changes
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,8 +58,6 @@
   color: white;
 }
 
-<<<<<<< Updated upstream
-=======
 .App-name{
   width: 90%;
 	flex-direction: row;
@@ -76,7 +77,6 @@
   color: #314455;
 }
 
->>>>>>> Stashed changes
 .App-link {
   color: #61dafb;
 }
