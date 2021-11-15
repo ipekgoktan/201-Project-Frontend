@@ -5,9 +5,11 @@ import './createUser.css';
 function createUser() {
   return (
     <div className="App">
+      <div>
+        <img src={logo} className="App-logo"/>
+      </div>
       <header className="App-header">
         <img src={title} className="App-name" />
-        <img src={logo} className="App-logo"/>
         {/* <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -21,6 +23,7 @@ function createUser() {
         </a> */}
       </header>
     </div>
+    
   );
 }
 
