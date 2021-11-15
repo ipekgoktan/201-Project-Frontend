@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import title from './title.svg';
-import './App.css';
+import './menu.css';
 
-function App() {
+function menu() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={title} className="App-name" />
-        {/* <img src={logo} className="App-logo"/> */}
+        <img src={logo} className="App-logo"/>
         {/* <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default menu;
