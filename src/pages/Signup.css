@@ -1,11 +1,11 @@
-.App {
+.Signup {
   text-align: center;
   background-color: #B1C4D7;
 
 }
 
-.App-logo {
-  width: 8%;
+.Signup-logo {
+  width: 30%;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: flex-start;
@@ -15,11 +15,11 @@
 }
 
 /*@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .Signup-logo {
+    animation: Signup-logo-spin infinite 20s linear;
   }
 } */
-.App-content {
+.Signup-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,18 +28,18 @@
   padding-left: 16px;
 }
 
-.App-items {
+.Signup-items {
   width: 40%;
 	flex-direction: row;
 	justify-content: space-around;
-	align-items: flex-start;
+	align-items: center;
   padding-top: 30px;
   padding-right: 16px;
   padding-left: 16px;
 }
 
-.App-loginsignup {
-  width: 70%;
+.Signup-loginsignup {
+  width: 10%;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: flex-start;
@@ -48,7 +48,7 @@
   padding-left: 16px;
 }
 
-.App-header {
+.Signup-header {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,7 @@
   color: white;
 }
 
-.App-name{
+.Signup-name{
   width: 90%;
 	flex-direction: row;
 	justify-content: space-around;
@@ -77,11 +77,11 @@
   color: #314455;
 }
 
-.App-link {
+.Signup-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes Signup-logo-spin {
   from {
     transform: rotate(0deg);
   }
