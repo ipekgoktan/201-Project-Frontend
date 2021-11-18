@@ -21,10 +21,12 @@ function Search() {
         </Link>
       
         <img src={entertimes} className="Search-items" />
-        <img src={whiterect} className="Search-items" />
-        <img src={guestemails} className="Search-items" />
-        <img src={whiterect} className="Search-items" />
-
+        <form class = "formLocation">
+          <input type="text" class = "InputBox"></input>
+        </form>        <img src={guestemails} className="Search-items" />
+        <form class = "formLocation">
+          <input type="text" class = "InputBox"></input>
+        </form>
         
         <Link to={`/Search`}>
           <img src={searchfortimes} className="Search-items" />

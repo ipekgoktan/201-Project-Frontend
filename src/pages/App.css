@@ -37,6 +37,38 @@
   padding-right: 16px;
   padding-left: 16px;
 }
+.InputBox{
+  width: 90%;
+  height: 60px;
+  margin-left:5%;
+  margin-right:5%;
+}
+
+input[type=text]:focus {
+  background-color: #314455;
+  color:white;
+  
+}
+
+.enter-user{
+  width: 90%;
+  margin-left:5%;
+  margin-right:5%;
+}
+
+input[type=text] {
+  border: 0px;
+  background-color: white;
+  color: #314455;
+  font-size: 40px;
+}
+
+.formLocation{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 90%;
+}
+
 
 .App-loginsignup {
   width: 10%;

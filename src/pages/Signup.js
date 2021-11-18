@@ -25,14 +25,22 @@ function Signup() {
         </Link>
       
         <img src={enteruser} className="Signup-items" />
-        <img src={whiterect} className="Signup-items" />
+        <form class = "formLocation">
+          <input type="text" class = "InputBox"></input>
+        </form>
         <img src={enterpwd} className="Signup-items" />
-        <img src={whiterect} className="Signup-items" />
+        <form class = "formLocation">
+          <input type="text" class = "InputBox"></input>
+        </form>
         <img src={confirmpwd} className="Signup-items" />
-        <img src={whiterect} className="Signup-items" />
+        <form class = "formLocation">
+          <input type="text" class = "InputBox"></input>
+        </form>
         <img src={enteremail} className="Signup-items" />
-        <img src={whiterect} className="Signup-items" />
-
+        <form class = "formLocation">
+          <input type="text" class = "InputBox"></input>
+        </form>
+        
         <Link to={`/Signup`}>
           <img src={signup} className="Signup-items" />
         </Link>

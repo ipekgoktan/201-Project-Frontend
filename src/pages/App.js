@@ -22,9 +22,13 @@ function App() {
         </Link>
       
         <img src={enteruser} className="App-items" />
-        <img src={whiterect} className="App-items" />
+        <form class = "formLocation">
+          <input type="text" class = "InputBox"></input>
+        </form>
         <img src={enterpwd} className="App-items" />
-        <img src={whiterect} className="App-items" />
+        <form class = "formLocation">
+          <input type="text" class = "InputBox"></input>
+        </form>
 
         <Link to={`/Accmenu`}>
           <img src={login} className="App-items" />
