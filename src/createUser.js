@@ -1,15 +1,22 @@
-import logo from './logo.svg';
-import title from './title.svg';
-import './createUser.css';
+import logo from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/logo.svg';
+import title from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/title.svg';
+import enteruser from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/enteruser.svg';
+import enterpwd from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/enterpwd.svg';
+import confirmpwd from  '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/confirmPassword.svg';
+import enteremail from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/enteremail.svg';
 
-function createUser() {
+import '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/createUser.css';
+
+function App2() {
   return (
     <div className="App">
-      <div>
-        <img src={logo} className="App-logo"/>
-      </div>
+      
       <header className="App-header">
-        <img src={title} className="App-name" />
+        
+        <div class = "App-Heading">
+        <img src={logo} className="App-logo" />
+        <img src={title} className="App-Name" />
+        </div>
         {/* <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -22,9 +29,41 @@ function createUser() {
           Learn React
         </a> */}
       </header>
+      <div className="App-content">
+       
+        <img src={enteruser} className="App-items" />
+
+        <form class = "formLocation">
+        <input type="text" class = "InputBox"></input>
+        </form>
+
+        <img src={enteremail} className=".App-items-two" />
+
+        <form class = "formLocation">
+        <input type="text" class = "InputBox"></input>
+        </form>
+
+        <img src={enterpwd} className="App-items" />
+
+        <form class = "formLocation">
+        <input type="text" class = "InputBox"></input>
+        </form>
+        <div c >
+        <img src={confirmpwd} lassName="App-items" />
+        </div>
+        <form class = "formLocation">
+        <input type="text" class = "InputBox"></input>
+        </form>
+      </div>
+      
+
+      <div class = "ButtonDiv">
+      <button type="button" class = "Button"><span>Sign up</span></button>
+      </div>
+      
+     
     </div>
-    
   );
 }
 
-export default createUser;
+export default App2;

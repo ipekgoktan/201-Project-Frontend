@@ -6,9 +6,56 @@ import login from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/sr
 import signup from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/signup.svg';
 import whiterect from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/whiterect.svg';
 import '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/App.css';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBSFegd3hVP_DQ2P35AUldm8cq8BWUriHo",
+  authDomain: "u-of-scheduling-conflicts.firebaseapp.com",
+  projectId: "u-of-scheduling-conflicts",
+  storageBucket: "u-of-scheduling-conflicts.appspot.com",
+  messagingSenderId: "850021422271",
+  appId: "1:850021422271:web:db14a028e01540e462a20a",
+  measurementId: "G-NTV5ZYV97L"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+function tryy(){
+  //var userEmail = document.getElementlById("UsernameBox").value;
+  var userEmail = document.getElementById("UsernameBox").value;
+  var userPass = document.getElementById("PasswordBox").value;
+ 
+  
+
+  const auth = getAuth();
+  signInWithEmailAndPassword(auth, userEmail, userPass)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      window.alert("Doneee");
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      window.alert("wrong Password" + errorMessage);
+    });
+
+}
 
 function App() {
+
+
   return (
+
+
+    
+
+    <html>
+    
     <div className="App">
       
       <header className="App-header">
@@ -16,36 +63,25 @@ function App() {
         <div class = "App-Heading">
         <img src={logo} className="App-logo" />
         <img src={title} className="App-Name" />
-        </div>
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
+        </div> 
       </header>
       <div className="App-content">
        
         <img src={enteruser} className="App-items" />
 
         <form class = "formLocation">
-        <input type="text" class = "InputBox"></input>
+        <input type="text" class = "InputBox" id="UsernameBox"></input>
         </form>
         <img src={enterpwd} className="App-items" />
         <form class = "formLocation">
-        <input type="text" class = "InputBox"></input>
+        <input type="text" class = "InputBox" id="PasswordBox"></input>
         </form>
       </div>
       
 
       <div class = "ButtonDiv">
         <div class = "TopButtonDiv">
-      <button type="button"  class = "Button"><span>Log In</span></button>
+      <button id ='trying' type="button" onClick={tryy} class = "Button"  ><span>Log In</span></button>
       </div>
       <div class = "BottomButtonDiv">
       <button type="button" class = "Button"><span>Sign up</span></button>
@@ -54,7 +90,44 @@ function App() {
       
      
     </div>
+    </html>
+
+
+
+  
+   
   );
 }
+
+
+
+
+
+/*
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBSFegd3hVP_DQ2P35AUldm8cq8BWUriHo",
+  authDomain: "u-of-scheduling-conflicts.firebaseapp.com",
+  projectId: "u-of-scheduling-conflicts",
+  storageBucket: "u-of-scheduling-conflicts.appspot.com",
+  messagingSenderId: "850021422271",
+  appId: "1:850021422271:web:db14a028e01540e462a20a",
+  measurementId: "G-NTV5ZYV97L"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+*/
+
+
+
 
 export default App;
