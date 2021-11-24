@@ -1,0 +1,183 @@
+.App {
+  background-color: #B1C4D7;
+  min-height: 100vh;
+}
+
+.App-logo {
+
+  width: 8%;
+  float:left; 
+  display:inline;
+
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+.App-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+
+.App-header {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+  
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-Name{
+  position: relative;
+  top: 20px;
+  left: 100px;
+  width: 70%;
+  float: left;
+  font-family: Space Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 59px;
+  text-align: center;
+}
+
+.App-Heading{
+ 
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-end;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+  padding-bottom:30px;
+  
+
+  color: #314455;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.EnterUsernameDiv{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.EnterUsername{
+  width: 80%;
+  margin-left:10%;
+  margin-right:10%;
+  font-size: 40px;
+  line-height: 59px;
+  text-align: center;
+  color: blue;
+}
+
+
+.InputBox{
+  width: 90%;
+  height: 60px;
+  margin-left:5%;
+  margin-right:5%;
+}
+
+input[type=text]:focus {
+  background-color: #314455;
+  color:white;
+  
+}
+
+.enter-user{
+  width: 90%;
+  margin-left:5%;
+  margin-right:5%;
+}
+
+input[type=text] {
+  border: 0px;
+  background-color: white;
+  color: #314455;
+  font-size: 40px;
+}
+
+.formLocation{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 90%;
+}
+
+
+
+.BottomButtonDiv{
+  float: left;
+}
+
+.TopButtonDiv{
+  float: right;
+}
+
+.ButtonDiv{
+  padding-top: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%
+  }
+
+.Button{
+  width: 300px;
+  height: 100px;
+  font-size: 40px;
+  line-height: 59px;
+  text-align: center;
+  color: white;
+  background-color: #9E5A63;
+  border-radius: 10px;
+
+}
+
+.Button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.Button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.Button:hover span {
+  padding-right: 25px;
+}
+
+.Button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
