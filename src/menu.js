@@ -1,5 +1,5 @@
 
-import '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/menu.css';
+import '../src/menu.css';
 
 function menu() {
   return (

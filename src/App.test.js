@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';	
-import App from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/createUser.js';	
+import App from '../src/createUser.js';
 
 test('renders learn react link', () => {	
   render(<App />);	

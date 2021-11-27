@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/App.css';
-import App from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/createUser.js';
+import '../src/App.css';
+import App from '../src/createUser.js';
 import reportWebVitals from './reportWebVitals';
 
 

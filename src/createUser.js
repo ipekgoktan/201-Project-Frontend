@@ -1,11 +1,12 @@
-import logo from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/logo.svg';
-import title from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/title.svg';
-import enteruser from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/enteruser.svg';
-import enterpwd from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/enterpwd.svg';
-import confirmpwd from  '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/confirmPassword.svg';
-import enteremail from '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/images/enteremail.svg';
+import logo from '../src/images/logo.svg';
+import title from '../src/images/title.svg';
+import enteruser from '../src/images/enteruser.svg';
+import enterpwd from '../src/images/enterpwd.svg';
+import confirmpwd from  '../src/images/confirmPassword.svg';
+import enteremail from '../src/images/enteremail.svg';
 
-import '/Users/nicolerussack/Documents/GitHub/201-Project-Frontend/src/createUser.css';
+import '../src/createUser.css';
+import React from 'react'
 
 function App2() {
   return (
