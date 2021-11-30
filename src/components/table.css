@@ -1,0 +1,108 @@
+.Table {
+    text-align: center;
+    background-color: #B1C4D7;
+  
+  }
+  
+  .Table-logo {
+    width: 30%;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    padding-top: 30px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  
+  /*@media (prefers-reduced-motion: no-preference) {
+    .Table-logo {
+      animation: Table-logo-spin infinite 20s linear;
+    }
+  } */
+  .Table-text-wrapper {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+  .Table-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  
+  .Table-items {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 30px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  
+  .Table-table {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-left: 100px;
+  }
+  
+  .Table-header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .Table-name{
+    width: 90%;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-end;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-left: 16px;
+  
+    font-family: Space Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 59px;
+    text-align: center;
+  
+    color: #314455;
+  }
+  
+  .Table-link {
+    color: #61dafb;
+  }
+  
+  @keyframes Table-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
