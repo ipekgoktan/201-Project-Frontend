@@ -108,19 +108,6 @@ function Signup() {
         <Link to={`/Signup`}>
           <img src={signup} onClick={tryy} className="Signup-items" />
         </Link>
-
-
-        {/* <p>
-          Edit <code>src/Signup.js</code> and save to reload.
-        </p>
-        <a
-          className="Signup-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>*/}
       </header>
       
       
