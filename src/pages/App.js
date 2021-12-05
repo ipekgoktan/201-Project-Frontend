@@ -6,10 +6,10 @@ import login from './../images/login.svg';
 import signup from './../images/signup.svg';
 import whiterect from './../images/whiterect.svg';
 import {Link } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 import './App.css';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
@@ -25,39 +25,60 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const cookies = new Cookies();
+
 
 function tryy(){
   //var userEmail = document.getElementlById("UsernameBox").value;
   var userEmail = document.getElementById("UsernameBox").value;
   var userPass = document.getElementById("PasswordBox").value;
-
   const auth = getAuth();
+
+  // var axios = require('axios');
+  // var data = '';
+
+  // var config = {
+  //   method: 'post',
+  //   url: 'https://uofschedulingconflictsapi.herokuapp.com/api/account',
+  //   headers: { 
+  //     'Content-Type': 'application/json', 
+  //     'Authorization': 'Bearer <jwt token>'
+  //   },
+  //   data : data
+  // };
+
+  // axios(config)
+  // .then(function (response) {
+  //   console.log(JSON.stringify(response.data));
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
+
   signInWithEmailAndPassword(auth, userEmail, userPass)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        window.alert("Doneee");
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        window.alert("wrong Password" + errorMessage);
-      });
-}
+    .then((userCredential) => {
+      //Signed in
+      const user = userCredential.user;
+      cookies.set('idToken', user.getIdToken(), { path: '/' });
+      window.alert("id token: " + cookies.get('idToken'));
+      window.location.replace(`/Accmenu`)
+      window.alert(auth.getAuth);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      window.alert("wrong Password" + errorMessage);
+    });
 
-function scheduleEvent(){
-  var time = document.getElementById("TimeBox").value;
-  var guests = document.getElementById("GuestBox").value;
-  guests = guests.replace(/\s/g, ''); //removes spaces
-  var emailArr = guests.split(','); //array of emails
-
-  const auth = getAuth();
-  //searchForTimes(auth, time, emailArr)
-  //TODO: How to make this call? no postman doc
 }
 
 function App() {
+  // const [token, setToken] = useState();
+
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -78,29 +99,12 @@ function App() {
           <input type="text" class = "InputBox" id="PasswordBox"></input>
         </form>
 
-        <Link to={`/Accmenu`}>
-          <img src={login} className="App-items" />
-        </Link>
+        <img src={login} className="App-items" onClick={tryy} />
         <Link to={`/Signup`}>
           <img src={signup} className="App-items" />
         </Link>
 
-
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>*/}
       </header>
-      
-      
-     
     </div>
   );
 }
