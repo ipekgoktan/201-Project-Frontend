@@ -60,7 +60,7 @@ function tryy(){
       //Signed in
       const user = userCredential.user;
       cookies.set('idToken', user.getIdToken(), { path: '/' });
-      window.alert("id token: " + cookies.get('idToken').toString());
+      window.alert("id token: " + cookies.get('idToken'));
       window.location.replace(`/Accmenu`)
       window.alert(auth.getAuth);
     })
