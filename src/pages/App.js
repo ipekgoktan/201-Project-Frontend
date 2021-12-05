@@ -6,6 +6,7 @@ import login from './../images/login.svg';
 import signup from './../images/signup.svg';
 import whiterect from './../images/whiterect.svg';
 import {Link } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 import './App.css';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -24,6 +25,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const cookies = new Cookies();
 
 
 function tryy(){
@@ -57,6 +59,8 @@ function tryy(){
     .then((userCredential) => {
       //Signed in
       const user = userCredential.user;
+      cookies.set('idToken', user.getIdToken(), { path: '/' });
+      window.alert("id token: " + cookies.get('idToken').toString());
       window.location.replace(`/Accmenu`)
       window.alert(auth.getAuth);
     })
