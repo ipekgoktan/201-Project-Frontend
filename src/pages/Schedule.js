@@ -84,7 +84,7 @@ class App extends Component {
         };
         var config = {
             method: "post",
-            url: "http://localhost:3001/api/getschedule",
+            url: "https://uofschedulingconflictsapi.herokuapp.com/api/getschedule",
             headers: {},
             data: data,
         };
