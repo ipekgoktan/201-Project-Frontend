@@ -64,12 +64,12 @@ function tryy() {
             axios(config)
                 .then(function (response) {
                     console.log(JSON.stringify(response.data));
+                    window.location.replace(`/App`);
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
             //user is logged in here
-            window.location.replace(`/App`);
 
             // ...
         })
@@ -98,11 +98,19 @@ function Signup() {
                 </form>
                 <img src={enterpwd} className="Signup-items" />
                 <form className="formLocation">
-                    <input type="text" className="InputBox" id="Passward1"></input>
+                    <input
+                        type="text"
+                        className="InputBox"
+                        id="Passward1"
+                    ></input>
                 </form>
                 <img src={confirmpwd} className="Signup-items" />
                 <form className="formLocation">
-                    <input type="text" className="InputBox" id="Passward2"></input>
+                    <input
+                        type="text"
+                        className="InputBox"
+                        id="Passward2"
+                    ></input>
                 </form>
 
                 <Link to={`/Signup`}>
