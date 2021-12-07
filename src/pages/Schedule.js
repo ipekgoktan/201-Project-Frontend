@@ -21,7 +21,7 @@ var data = {
 
 var config = {
     method: "post",
-    url: "http://localhost:3001/api/getschedule",
+    url: "https://uofschedulingconflictsapi.herokuapp.com/api/getschedule",
     headers: {},
     data: data,
 };
@@ -45,7 +45,28 @@ function SubmitTable() {
             TableArray.push(0);
         }
     }
-    window.alert(TableArray);
+    var axios = require("axios");
+    var cookie = new Cookie();
+    var idToken = cookie.get("idToken");
+
+    var config = {
+        method: "put",
+        url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedule",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + idToken,
+        },
+        data: data,
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    console.log(TableArray);
 }
 
 class App extends Component {
@@ -66,15 +87,42 @@ class App extends Component {
             "7pm",
             "8pm",
         ];
-        var body = [
-            [1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1],
-            [0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1],
-            [0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1],
-            [0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1],
-            [0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1],
-            [0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1],
-            [0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1],
-        ];
+        var axios = require("axios");
+        var data = JSON.stringify({ email: cookie.get("email") });
+        var body = [];
+        // var body=[[0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
+        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
+        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
+        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
+        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
+        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
+        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0]];
+
+        var config = {
+            method: "post",
+            url: "https://uofschedulingconflictsapi.herokuapp.com/api/getschedule",
+            //   headers: {
+            //       'Content-Type': 'application/json'
+            //   },
+            data: data,
+        };
+
+        axios(config)
+            .then(function (response) {
+                body = response.data;
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        // var body =
+        // [[1 ,1, 1, 1, 0, 0, 0 ,1 ,0 ,0, 1, 1, 1],
+        //            [0 ,1, 0, 1, 0, 0, 0 ,0 ,0 ,0, 1, 1, 1],
+        //             [0 ,1, 0, 1, 0, 0, 1 ,0 ,0 ,0, 1, 1, 1],
+        //             [0 ,1, 0, 1, 0, 1, 0 ,0 ,0 ,0, 0, 1, 1],
+        //             [0 ,1, 0, 1, 0, 0, 0 ,1 ,0 ,0, 1, 1, 1],
+        //             [0 ,1, 0, 1, 0, 0, 0 ,0 ,0 ,0, 1, 1, 1],
+        //             [0 ,1, 0, 1, 0, 1, 0 ,0 ,0 ,0, 1, 0, 1]];
         return (
             <div className="App">
                 <header className="App-header">
