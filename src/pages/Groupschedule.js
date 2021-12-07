@@ -141,7 +141,7 @@ class TableRow extends Component {
         // }
         //window.alert(days)
         var s = days[number / 13];
-
+        //window.alert(s)
         return (
             <tr>
                 <td className="all">{s}</td>
