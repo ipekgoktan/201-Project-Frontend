@@ -1,5 +1,5 @@
 import "./Schedule.css";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Cookie from "universal-cookie";
 
 var number = 0;
@@ -48,15 +48,15 @@ function SubmitTable() {
     var axios = require("axios");
     var cookie = new Cookie();
     var idToken = cookie.get("idToken");
+    console.log(idToken);
 
     var config = {
-        method: "put",
-        url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedule",
+        method: "post",
+        url: "http://localhost:3001/api/schedule",
         headers: {
-            "Content-Type": "application/json",
             Authorization: "Bearer " + idToken,
         },
-        data: data,
+        data: { schedule: TableArray },
     };
 
     axios(config)
@@ -70,6 +70,38 @@ function SubmitTable() {
 }
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            body: [],
+        };
+    }
+    componentDidMount() {
+        console.log(this.setState);
+        var data = {
+            email: cookie.get("email"),
+        };
+        var config = {
+            method: "post",
+            url: "http://localhost:3001/api/getschedule",
+            headers: {},
+            data: data,
+        };
+        const setState = this.setState.bind(this);
+
+        axios(config)
+            .then(function (response) {
+                var raw_schedule = response.data.schedule;
+                var body = [];
+                while (raw_schedule.length > 0)
+                    body.push(raw_schedule.splice(raw_schedule, 13));
+                setState({ body: body });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     render() {
         const heading = [
             "  ",
@@ -87,34 +119,7 @@ class App extends Component {
             "7pm",
             "8pm",
         ];
-        var axios = require("axios");
-        var data = JSON.stringify({ email: cookie.get("email") });
-        var body = [];
-        // var body=[[0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
-        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
-        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
-        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
-        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
-        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0],
-        //             [0 ,0, 0, 0, 0, 0, 0 ,0 ,0 ,0, 0, 0, 0]];
 
-        var config = {
-            method: "post",
-            url: "https://uofschedulingconflictsapi.herokuapp.com/api/getschedule",
-            //   headers: {
-            //       'Content-Type': 'application/json'
-            //   },
-            data: data,
-        };
-
-        axios(config)
-            .then(function (response) {
-                body = response.data;
-                console.log(JSON.stringify(response.data));
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
         // var body =
         // [[1 ,1, 1, 1, 0, 0, 0 ,1 ,0 ,0, 1, 1, 1],
         //            [0 ,1, 0, 1, 0, 0, 0 ,0 ,0 ,0, 1, 1, 1],
@@ -131,7 +136,7 @@ class App extends Component {
                             id="mainTable"
                             className="table"
                             heading={heading}
-                            body={body}
+                            body={this.state.body}
                         />
                     </div>
                     <button type="button" id="BUTTON" onClick={SubmitTable}>
