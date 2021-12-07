@@ -48,21 +48,21 @@ function tryy(){
 
       var config = {
         method: 'post',
-        url: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<api key>',
+        url: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + firebaseConfig.apiKey,
         headers: { 
           'Content-Type': 'application/json'
         },
         data : data
       };
-
+      window.alert("TEST1");
       axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-      window.location.replace(`/Accmenu`)
+          .then(function (response) {
+              console.log(JSON.stringify(response.data));
+          })
+          .catch(function (error) {
+              console.log(error);
+          });
+        window.location.replace(`/Accmenu`)
       //window.alert(auth.getAuth);
     })
     .catch((error) => {
