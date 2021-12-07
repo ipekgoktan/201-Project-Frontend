@@ -50,8 +50,6 @@ function tryy() {
         .then((userCredential) => {
             console.log(userCredential);
             const token = userCredential.user.accessToken;
-            //window.location.replace(`/App`);
-
             var config = {
                 method: "post",
                 url: "https://uofschedulingconflictsapi.herokuapp.com/api/account",
@@ -69,6 +67,9 @@ function tryy() {
                 .catch(function (error) {
                     console.log(error);
                 });
+            
+            window.location.replace(`/App`);
+        
             //user is logged in here
             // ...
         })
@@ -92,16 +93,16 @@ function Signup() {
                 </Link>
 
                 <img src={enteremail} className="Signup-items" />
-                <form class="formLocation">
-                    <input type="text" class="InputBox" id="Email"></input>
+                <form className="formLocation">
+                    <input type="text" className="InputBox" id="Email"></input>
                 </form>
                 <img src={enterpwd} className="Signup-items" />
-                <form class="formLocation">
-                    <input type="text" class="InputBox" id="Passward1"></input>
+                <form className="formLocation">
+                    <input type="text" className="InputBox" id="Passward1"></input>
                 </form>
                 <img src={confirmpwd} className="Signup-items" />
-                <form class="formLocation">
-                    <input type="text" class="InputBox" id="Passward2"></input>
+                <form className="formLocation">
+                    <input type="text" className="InputBox" id="Passward2"></input>
                 </form>
 
                 <Link to={`/Signup`}>

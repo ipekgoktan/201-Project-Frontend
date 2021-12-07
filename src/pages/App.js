@@ -32,33 +32,35 @@ function tryy(){
   var userPass = document.getElementById("PasswordBox").value;
   const auth = getAuth();
 
-  // var axios = require('axios');
-  // var data = '';
-
-  // var config = {
-  //   method: 'post',
-  //   url: 'http://localhost:3001/api/account',
-  //   headers: { 
-  //     'Content-Type': 'application/json', 
-  //     'Authorization': 'Bearer <jwt token>'
-  //   },
-  //   data : data
-  // };
-
-  // axios(config)
-  // .then(function (response) {
-  //   console.log(JSON.stringify(response.data));
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
-
   signInWithEmailAndPassword(auth, userEmail, userPass)
     .then((userCredential) => {
       //Signed in
       const user = userCredential.user;
+      var axios = require('axios');
+      console.log(userCredential)
+      var data = JSON.stringify({
+        "email": userEmail,
+        "password": userPass,
+        "returnSecureToken": true
+      });
+
+      var config = {
+        method: 'post',
+        url: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<api key>',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+        data : data
+      };
+
+      axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
       window.location.replace(`/Accmenu`)
-      window.alert(auth.getAuth);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -87,12 +89,12 @@ function App() {
         </Link>
       
         <img src={enteruser} className="App-items" />
-        <form class = "formLocation">
-          <input type="text" class = "InputBox" id="UsernameBox"></input>
+        <form className = "formLocation">
+          <input type="text" className = "InputBox" id="UsernameBox"></input>
         </form>
         <img src={enterpwd} className="App-items" />
-        <form class = "formLocation">
-          <input type="text" class = "InputBox" id="PasswordBox"></input>
+        <form className = "formLocation">
+          <input type="text" className = "InputBox" id="PasswordBox"></input>
         </form>
 
         <img src={login} className="App-items" onClick={tryy} />

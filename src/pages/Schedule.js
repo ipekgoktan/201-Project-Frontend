@@ -112,8 +112,8 @@ class TableRow extends Component {
                 <td class = "all">{s}</td>
                  {
                      
-                    row.map(val => val === 1 ? <td class = "all"><label class="container">{<input type="checkbox"  id = {number++} defaultChecked={true}></input> } <span class="checkmark"></span></label></td>
-                    :  <td class = "all"><label class="container">{<input id = {number++} type="checkbox"   defaultChecked={false}></input> } <span class="checkmark"></span></label></td>)
+                    row.map(val => val === 1 ? <td className = "all"><label className="container">{<input type="checkbox"  id = {number++} defaultChecked={true}></input> } <span className="checkmark"></span></label></td>
+                    :  <td className = "all"><label className="container">{<input id = {number++} type="checkbox"   defaultChecked={false}></input> } <span className="checkmark"></span></label></td>)
                 }
 
                 
