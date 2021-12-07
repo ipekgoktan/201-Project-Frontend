@@ -2,6 +2,15 @@ import "./Schedule.css";
 import React, { Component, useState } from "react";
 import Cookie from "universal-cookie";
 
+// console.log("axios");
+// axios(config)
+//     .then(function (response) {
+//         console.log(JSON.stringify(response.data));
+//     })
+//     .catch(function (error) {
+//         console.log(error);
+//     });
+
 var number = 0;
 const days = [
     "Sunday",
@@ -13,26 +22,6 @@ const days = [
     "Saturday",
 ];
 
-var cookie = new Cookie();
-var allEmailschedules = [];
-var axios = require("axios");
-var data = '{\n    "emailList": ' + cookie.get("inputemails") + "\n}";
-
-var config = {
-    method: "post",
-    url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedules",
-    headers: {},
-    data: data,
-};
-
-axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -43,47 +32,43 @@ class App extends Component {
     }
     componentDidMount() {
         console.log(this.setState);
+        const setState = this.setState.bind(this);
+        var cookie = new Cookie();
+        var allEmailschedules = [];
         var axios = require("axios");
-        var data = '{\n    "emailList": ' + cookie.get("inputemails") + "\n}";
-
+        var data = { emailList: cookie.get("inputemails") };
+        console.log(cookie.get("inputemails"));
         var config = {
             method: "post",
             url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedules",
             headers: {},
             data: data,
         };
-        window.alert(data);
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-        var axios = require("axios");
-        var data = JSON.stringify({
-            eventLen: cookie.get("inputemails").length,
-            schedules: allEmailschedules,
-        });
-        window.alert(data);
-        var config = {
-            method: "post",
-            url: "localhost:8080/merge",
-            headers: {},
-            data: data,
-        };
-
-        const setState = this.setState.bind(this);
 
         axios(config)
             .then(function (response) {
-                var raw_schedule = response.data.schedule;
+                var raw_schedule = response.data.scheduleList;
+                console.log(cookie.get("inputtime"));
+                var data = {
+                    eventLen: cookie.get("inputtime"),
+                    schedules: raw_schedule,
+                };
+                var merged_schedule = [];
+                for (var i = 0; i < raw_schedule[0].length; i++) {
+                    var isFree = 1;
+                    for (var j = 0; j < raw_schedule.length; j++) {
+                        if (raw_schedule[j][i] == 0) {
+                            isFree = 0;
+                            break;
+                        }
+                    }
+                    merged_schedule.push(isFree);
+                }
+
                 var body = [];
-                while (raw_schedule.length > 0)
-                    body.push(raw_schedule.splice(raw_schedule, 13));
+                while (merged_schedule.length > 0)
+                    body.push(merged_schedule.splice(raw_schedule, 13));
                 setState({ body: body });
-                console.log(JSON.stringify(response.data));
             })
             .catch(function (error) {
                 console.log(error);
