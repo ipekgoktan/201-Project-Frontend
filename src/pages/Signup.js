@@ -73,9 +73,8 @@ function tryy() {
             // ...
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
-            window.alert("Did not work" + errorMessage);
+            console.log("Did not work" + errorMessage);
             // ..
         });
 }
