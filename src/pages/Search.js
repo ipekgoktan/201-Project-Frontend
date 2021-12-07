@@ -38,10 +38,6 @@ function Search() {
                 <Link to={`/App`}>
                     <img src={title} className="Search-name" />
                 </Link>
-                <img src={entertimes} className="Search-items" />
-                <form className="formLocation">
-                    <input type="text" className="InputBox" id="times"></input>
-                </form>{" "}
                 <img src={guestemails} className="Search-items" />
                 <form className="formLocation">
                     <input type="text" className="InputBox" id="emails"></input>
