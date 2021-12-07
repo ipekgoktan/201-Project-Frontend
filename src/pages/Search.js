@@ -8,6 +8,21 @@ import {Link } from "react-router-dom";
 import Cookie from 'universal-cookie';
 
 import './Search.css';
+import Groupschedule from './Groupschedule';
+
+
+function tryy(){
+  var inputtimes = document.getElementById("times").value;
+  var inputemails = document.getElementById("emails").value;
+  var cookie = new Cookie()
+  var inputTimesarray = inputtimes.split(",")
+  var inputEmailsarray = inputemails.split(",")
+  inputEmailsarray.push(cookie.get("email"))
+
+  cookie.set('inputemails', inputEmailsarray, { path: '/' })
+  
+
+}
 
 function Search() {
   return (
@@ -23,14 +38,14 @@ function Search() {
       
         <img src={entertimes} className="Search-items" />
         <form className= "formLocation">
-          <input type="text" className= "InputBox"></input>
+          <input type="text" className= "InputBox" id="times"></input>
         </form>        <img src={guestemails} className="Search-items" />
         <form className= "formLocation">
-          <input type="text" className= "InputBox"></input>
+          <input type="text" className= "InputBox" id="emails"></input>
         </form>
         
-        <Link to={`/Search`}>
-          <img src={searchfortimes} className="Search-items" />
+        <Link to={`/Groupschedule`}>
+          <img src={searchfortimes} className="Search-items" onClick={tryy}/>
         </Link>
 
       </header>

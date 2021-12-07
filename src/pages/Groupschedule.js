@@ -1,8 +1,7 @@
-import "./Groupschedule.css";
-import React, { Component } from "react";
+import "./Schedule.css";
+import React, { Component, useState } from "react";
 import Cookie from "universal-cookie";
 
-var cookie = new Cookie();
 var number = 0;
 const days = [
     "Sunday",
@@ -13,15 +12,15 @@ const days = [
     "Friday",
     "Saturday",
 ];
+
+var cookie = new Cookie();
+var allEmailschedules = [];
 var axios = require("axios");
-var data = JSON.stringify({
-    eventLen: 15,
-    schedules: [],
-});
+var data = '{\n    "emailList": ' + cookie.get("inputemails") + "\n}";
 
 var config = {
-    method: "get",
-    url: "/merge",
+    method: "post",
+    url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedules",
     headers: {},
     data: data,
 };
@@ -34,21 +33,62 @@ axios(config)
         console.log(error);
     });
 
-function SubmitTable() {
-    var TableArray = [];
-    //var d = document.getElementById(2);
-    for (let i = 0; i < 91; i++) {
-        var t = document.getElementById(i).checked;
-        if (t) {
-            TableArray.push(1);
-        } else {
-            TableArray.push(0);
-        }
-    }
-    window.alert(TableArray);
-}
+class App extends Component {
+    constructor(props) {
+        super(props);
 
-class Groupschedule extends Component {
+        this.state = {
+            body: [],
+        };
+    }
+    componentDidMount() {
+        console.log(this.setState);
+        var axios = require("axios");
+        var data = '{\n    "emailList": ' + cookie.get("inputemails") + "\n}";
+
+        var config = {
+            method: "post",
+            url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedules",
+            headers: {},
+            data: data,
+        };
+        window.alert(data);
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        var axios = require("axios");
+        var data = JSON.stringify({
+            eventLen: cookie.get("inputemails").length,
+            schedules: allEmailschedules,
+        });
+        window.alert(data);
+        var config = {
+            method: "post",
+            url: "localhost:8080/merge",
+            headers: {},
+            data: data,
+        };
+
+        const setState = this.setState.bind(this);
+
+        axios(config)
+            .then(function (response) {
+                var raw_schedule = response.data.schedule;
+                var body = [];
+                while (raw_schedule.length > 0)
+                    body.push(raw_schedule.splice(raw_schedule, 13));
+                setState({ body: body });
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     render() {
         const heading = [
             "  ",
@@ -66,38 +106,6 @@ class Groupschedule extends Component {
             "7pm",
             "8pm",
         ];
-
-        var axios = require("axios");
-        var data = JSON.stringify({ email: cookie.get("email") });
-        var body = [];
-        var config = {
-            method: "get",
-            url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedule",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            data: data,
-        };
-
-        axios(config)
-            .then(function (response) {
-                body = response.data;
-                console.log(JSON.stringify(response.data));
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-        //var body= response.data
-
-        // var body =
-        // [[1 ,1, 1, 1, 0, 0, 0 ,1 ,0 ,0, 1, 1, 1],
-        //            [0 ,1, 0, 1, 0, 0, 0 ,0 ,0 ,0, 1, 1, 1],
-        //             [0 ,1, 0, 1, 0, 0, 1 ,0 ,0 ,0, 1, 1, 1],
-        //             [0 ,1, 0, 1, 0, 1, 0 ,0 ,0 ,0, 0, 1, 1],
-        //             [0 ,1, 0, 1, 0, 0, 0 ,1 ,0 ,0, 1, 1, 1],
-        //             [0 ,1, 0, 1, 0, 0, 0 ,0 ,0 ,0, 1, 1, 1],
-        //             [0 ,1, 0, 1, 0, 1, 0 ,0 ,0 ,0, 1, 0, 1]];
         return (
             <div className="App">
                 <header className="App-header">
@@ -106,12 +114,9 @@ class Groupschedule extends Component {
                             id="mainTable"
                             className="table"
                             heading={heading}
-                            body={body}
+                            body={this.state.body}
                         />
                     </div>
-                    <button type="button" id="BUTTON" onClick={SubmitTable}>
-                        Submit
-                    </button>
                 </header>
             </div>
         );
@@ -189,4 +194,4 @@ class TableRow extends Component {
     }
 }
 
-export default Groupschedule;
+export default App;
