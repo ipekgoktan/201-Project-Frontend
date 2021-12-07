@@ -7,8 +7,9 @@ var number = 0;
 const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 var axios = require('axios');
+var cookie = new Cookie();
 var data = JSON.stringify({
-  "email": cookies.get('email')
+  "email": cookie.get('email')
 });
 
 var config = {

@@ -2,6 +2,7 @@ import logo from './../images/logo.svg';
 import title from './../images/title.svg';
 import searchfortimes from './../images/searchfortimes.svg';
 import updateschedule from './../images/updateschedule.svg';
+import Cookie from 'universal-cookie';
 
 import {Link } from "react-router-dom";
 
