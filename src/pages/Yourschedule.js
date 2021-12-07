@@ -7,7 +7,9 @@ import signup from './../images/signup.svg';
 import whiterect from './../images/whiterect.svg';
 import Table from './../components/Table'
 import {Link } from "react-router-dom";
-import Schedule from './Schedule'
+import Schedule from './Schedule';
+import Groupschedule from './Groupschedule'
+
 import Cookie from 'universal-cookie';
 
 
