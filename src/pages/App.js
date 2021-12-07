@@ -4,7 +4,6 @@ import enteruser from './../images/enteruser.svg';
 import enterpwd from './../images/enterpwd.svg';
 import login from './../images/login.svg';
 import signup from './../images/signup.svg';
-import whiterect from './../images/whiterect.svg';
 import {Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
 
@@ -29,31 +28,9 @@ const cookies = new Cookies();
 
 
 function tryy(){
-  //var userEmail = document.getElementlById("UsernameBox").value;
   var userEmail = document.getElementById("UsernameBox").value;
   var userPass = document.getElementById("PasswordBox").value;
   const auth = getAuth();
-
-  // var axios = require('axios');
-  // var data = '';
-
-  // var config = {
-  //   method: 'post',
-  //   url: 'http://localhost:3001/api/account',
-  //   headers: { 
-  //     'Content-Type': 'application/json', 
-  //     'Authorization': 'Bearer <jwt token>'
-  //   },
-  //   data : data
-  // };
-
-  // axios(config)
-  // .then(function (response) {
-  //   console.log(JSON.stringify(response.data));
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
 
   signInWithEmailAndPassword(auth, userEmail, userPass)
     .then((userCredential) => {
@@ -61,9 +38,32 @@ function tryy(){
       const user = userCredential.user;
       const token = userCredential.user.accessToken;
       cookies.set('idToken', token, { path: '/' });
-      window.alert("id token: " + cookies.get('idToken'));
+      //window.alert("id token: " + cookies.get('idToken'));
+      var axios = require('axios');
+      var data = JSON.stringify({
+        "email": userEmail,
+        "password": userPass,
+        "returnSecureToken": true
+      });
+
+      var config = {
+        method: 'post',
+        url: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<api key>',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+        data : data
+      };
+
+      axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
       window.location.replace(`/Accmenu`)
-      window.alert(auth.getAuth);
+      //window.alert(auth.getAuth);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -74,12 +74,6 @@ function tryy(){
 }
 
 function App() {
-  // const [token, setToken] = useState();
-
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
-
   return (
     <div className="App">
       <header className="App-header">
@@ -92,12 +86,12 @@ function App() {
         </Link>
       
         <img src={enteruser} className="App-items" />
-        <form class = "formLocation">
-          <input type="text" class = "InputBox" id="UsernameBox"></input>
+        <form className= "formLocation">
+          <input type="text" className= "InputBox" id="UsernameBox"></input>
         </form>
         <img src={enterpwd} className="App-items" />
-        <form class = "formLocation">
-          <input type="text" class = "InputBox" id="PasswordBox"></input>
+        <form className= "formLocation">
+          <input type="text" className= "InputBox" id="PasswordBox"></input>
         </form>
 
         <img src={login} className="App-items" onClick={tryy} />

@@ -22,29 +22,17 @@ function Search() {
         </Link>
       
         <img src={entertimes} className="Search-items" />
-        <form class = "formLocation">
-          <input type="text" class = "InputBox"></input>
+        <form className= "formLocation">
+          <input type="text" className= "InputBox"></input>
         </form>        <img src={guestemails} className="Search-items" />
-        <form class = "formLocation">
-          <input type="text" class = "InputBox"></input>
+        <form className= "formLocation">
+          <input type="text" className= "InputBox"></input>
         </form>
         
         <Link to={`/Search`}>
           <img src={searchfortimes} className="Search-items" />
         </Link>
 
-
-        {/* <p>
-          Edit <code>src/Search.js</code> and save to reload.
-        </p>
-        <a
-          className="Search-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>*/}
       </header>
       
       

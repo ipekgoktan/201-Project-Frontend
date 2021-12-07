@@ -92,16 +92,16 @@ function Signup() {
                 </Link>
 
                 <img src={enteremail} className="Signup-items" />
-                <form class="formLocation">
-                    <input type="text" class="InputBox" id="Email"></input>
+                <form className="formLocation">
+                    <input type="text" className="InputBox" id="Email"></input>
                 </form>
                 <img src={enterpwd} className="Signup-items" />
-                <form class="formLocation">
-                    <input type="text" class="InputBox" id="Passward1"></input>
+                <form className="formLocation">
+                    <input type="text" className="InputBox" id="Passward1"></input>
                 </form>
                 <img src={confirmpwd} className="Signup-items" />
-                <form class="formLocation">
-                    <input type="text" class="InputBox" id="Passward2"></input>
+                <form className="formLocation">
+                    <input type="text" className="InputBox" id="Passward2"></input>
                 </form>
 
                 <Link to={`/Signup`}>
