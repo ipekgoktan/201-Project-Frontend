@@ -5,12 +5,16 @@ import updateschedule from './../images/updateschedule.svg';
 import login from './../images/login.svg';
 import signup from './../images/signup.svg';
 import whiterect from './../images/whiterect.svg';
+import Cookie from 'universal-cookie';
 
 import {Link } from "react-router-dom";
 
 import './Accmenu.css';
 
 function Accmenu() {
+    var cookie = new Cookie();
+    window.alert("cookie test!");
+    window.alert("id token: " + cookie.get('idToken'));
   return (
     <div className="Accmenu">
       <header className="Accmenu-header">

@@ -5,7 +5,7 @@ import enterpwd from './../images/enterpwd.svg';
 import login from './../images/login.svg';
 import signup from './../images/signup.svg';
 import {Link } from "react-router-dom";
-import Cookies from 'universal-cookie';
+import Cookie from 'universal-cookie';
 
 import './App.css';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -24,7 +24,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const cookies = new Cookies();
+const cookie = new Cookie();
 
 
 function tryy(){
@@ -37,8 +37,8 @@ function tryy(){
       //Signed in
       const user = userCredential.user;
       const token = userCredential.user.accessToken;
-      cookies.set('idToken', token, { path: '/' });
-      //window.alert("id token: " + cookies.get('idToken'));
+      cookie.set('idToken', token, { path: '/' });
+      window.alert("id token: " + cookie.get('idToken'));
       var axios = require('axios');
       var data = JSON.stringify({
         "email": userEmail,

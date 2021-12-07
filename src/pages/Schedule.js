@@ -1,7 +1,7 @@
 
 import './Schedule.css';
 import React, { Component } from 'react';
-import Cookies from 'universal-cookie';
+import Cookie from 'universal-cookie';
 
 var number = 0;
 const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
