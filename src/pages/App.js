@@ -37,7 +37,7 @@ function tryy(){
 
   // var config = {
   //   method: 'post',
-  //   url: 'https://uofschedulingconflictsapi.herokuapp.com/api/account',
+  //   url: 'http://localhost:3001/api/account',
   //   headers: { 
   //     'Content-Type': 'application/json', 
   //     'Authorization': 'Bearer <jwt token>'

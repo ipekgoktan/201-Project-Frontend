@@ -11,7 +11,11 @@ import Groupschedule from './pages/Groupschedule';
 import Signup from './pages/Signup';
 import Search from './pages/Search';
 
-//const rootElement = document.getElementById("root");
+// const express = require('express');
+// const app = express();
+// app.use(cors({
+//   origin: '*'
+// }));
 ReactDOM.render(
   
   <BrowserRouter>

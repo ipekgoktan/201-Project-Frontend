@@ -49,24 +49,26 @@ function tryy(){
     .then((userCredential) => {
       console.log(userCredential)
       const user = userCredential.user;
-      window.location.replace(`/App`);
+      //window.location.replace(`/App`);
+      
       var config = {
         method: 'post',
-        url: 'https://uofschedulingconflictsapi.herokuapp.com/api/account',
+        url: 'http://localhost:3001/api/account',
         headers: { 
           'Content-Type': 'application/json', 
-          'Authorization': 'Bearer' + auth
+          'Authorization': 'Bearer' + user.getIdToken()
         },
         data : data
       };
-    
+      window.alert("hii")
       axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then(function (response) {
+          window.alert("hiiiii")
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       //user is logged in here
       // ...
     })
