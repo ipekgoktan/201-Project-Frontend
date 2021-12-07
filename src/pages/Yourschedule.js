@@ -8,6 +8,7 @@ import whiterect from './../images/whiterect.svg';
 import Table from './../components/Table'
 import {Link } from "react-router-dom";
 import Schedule from './Schedule'
+import Cookies from 'universal-cookie';
 
 
 import './Yourschedule.css';

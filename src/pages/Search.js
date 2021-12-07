@@ -5,6 +5,7 @@ import guestemails from './../images/guestemails.svg';
 import searchfortimes from './../images/searchfortimes.svg';
 import whiterect from './../images/whiterect.svg';
 import {Link } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 import './Search.css';
 

@@ -59,7 +59,8 @@ function tryy(){
     .then((userCredential) => {
       //Signed in
       const user = userCredential.user;
-      cookies.set('idToken', user.getIdToken(), { path: '/' });
+      const token = userCredential.user.accessToken;
+      cookies.set('idToken', token, { path: '/' });
       window.alert("id token: " + cookies.get('idToken'));
       window.location.replace(`/Accmenu`)
       window.alert(auth.getAuth);
