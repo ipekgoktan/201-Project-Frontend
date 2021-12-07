@@ -24,7 +24,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const cookies = new Cookies();
 
 
 function tryy(){
@@ -38,6 +37,7 @@ function tryy(){
       const user = userCredential.user;
       const token = userCredential.user.accessToken;
       cookies.set('idToken', token, { path: '/' });
+      cookies.set('email', userEmail, { path: '/' })
       //window.alert("id token: " + cookies.get('idToken'));
       var axios = require('axios');
       var data = JSON.stringify({
@@ -48,7 +48,7 @@ function tryy(){
 
       var config = {
         method: 'post',
-        url: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<api key>',
+        url: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + firebaseConfig.apiKey,
         headers: { 
           'Content-Type': 'application/json'
         },

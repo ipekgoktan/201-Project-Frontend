@@ -6,6 +6,27 @@ import Cookies from 'universal-cookie';
 var number = 0;
 const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
+var axios = require('axios');
+var data = JSON.stringify({
+  "email": cookies.get('email')
+});
+
+var config = {
+  method: 'get',
+  url: 'https://uofschedulingconflictsapi.herokuapp.com/api/schedule',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
 
 function SubmitTable(){
     var TableArray = []
@@ -30,8 +51,10 @@ function SubmitTable(){
   
 class App extends Component {
     render() {
+
         const heading= ["  ", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm"]; 
-        var body = [[1 ,1, 1, 1, 0, 0, 0 ,1 ,0 ,0, 1, 1, 1],
+        var body =
+        [[1 ,1, 1, 1, 0, 0, 0 ,1 ,0 ,0, 1, 1, 1],
                    [0 ,1, 0, 1, 0, 0, 0 ,0 ,0 ,0, 1, 1, 1],
                     [0 ,1, 0, 1, 0, 0, 1 ,0 ,0 ,0, 1, 1, 1],
                     [0 ,1, 0, 1, 0, 1, 0 ,0 ,0 ,0, 0, 1, 1],

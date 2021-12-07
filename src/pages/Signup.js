@@ -50,7 +50,6 @@ function tryy() {
         .then((userCredential) => {
             console.log(userCredential);
             const token = userCredential.user.accessToken;
-            //window.location.replace(`/App`);
 
             var config = {
                 method: "post",
@@ -70,6 +69,8 @@ function tryy() {
                     console.log(error);
                 });
             //user is logged in here
+            window.location.replace(`/App`);
+
             // ...
         })
         .catch((error) => {
