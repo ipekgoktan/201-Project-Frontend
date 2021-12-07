@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0936606e-b611-4b85-a74a-02eb8f39abfd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Accmenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Accmenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Groupschedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Groupschedule.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Schedule.js" afterDir="false" />

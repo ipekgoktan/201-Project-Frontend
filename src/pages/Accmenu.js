@@ -8,6 +8,9 @@ import {Link } from "react-router-dom";
 import './Accmenu.css';
 
 function Accmenu() {
+    var cookie = new Cookie();
+    window.alert("cookie test!");
+    window.alert("id token: " + cookie.get('idToken'));
   return (
     <div className="Accmenu">
       <header className="Accmenu-header">

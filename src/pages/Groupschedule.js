@@ -6,7 +6,7 @@ import login from './../images/login.svg';
 import signup from './../images/signup.svg';
 import whiterect from './../images/whiterect.svg';
 import {Link } from "react-router-dom";
-import Cookies from 'universal-cookie';
+import Cookie from 'universal-cookie';
 
 
 import './Groupschedule.css';
