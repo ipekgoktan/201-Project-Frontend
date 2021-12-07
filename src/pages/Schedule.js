@@ -52,7 +52,7 @@ function SubmitTable() {
 
     var config = {
         method: "post",
-        url: "http://localhost:3001/api/schedule",
+        url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedule",
         headers: {
             Authorization: "Bearer " + idToken,
         },
