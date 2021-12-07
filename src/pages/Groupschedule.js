@@ -13,28 +13,25 @@ const days = [
     "Saturday",
 ];
 
-var axios = require("axios");
 var cookie = new Cookie();
 var allEmailschedules = []
-var data = {
-    emailList: cookie.get("inputemails"),
-};
+var axios = require('axios');
+var data = '{\n    "emailList": '+cookie.get("inputemails")+'\n}';
 
 var config = {
-    method: "get",
-    url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedules",
-    headers: {},
-    data: data,
+  method: 'post',
+  url: 'https://uofschedulingconflictsapi.herokuapp.com/api/schedules',
+  headers: { },
+  data : data
 };
 
 axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-
+  .then(function (response) {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
 class App extends Component {
     constructor(props) {
@@ -47,46 +44,40 @@ class App extends Component {
     componentDidMount() {
         console.log(this.setState);
         var axios = require('axios');
-        var data = {
-            emailList: cookie.get("inputemails"),
-        };
+        var data = '{\n    "emailList": '+cookie.get("inputemails")+'\n}';
+
         var config = {
-            method: "get",
-            url: "https://uofschedulingconflictsapi.herokuapp.com/api/getschedules",
-            headers: {},
-            data: data,
+          method: 'post',
+          url: 'https://uofschedulingconflictsapi.herokuapp.com/api/schedules',
+          headers: { },
+          data : data
         };
-        window.alert("hi")
-        const setState = this.setState.bind(this);
-
+        window.alert(data)
         axios(config)
-            .then(function (response) {
-              window.alert("hiiii")
-                allEmailschedules = response.data.schedule;
-                console.log(JSON.stringify(response.data));
-
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+          .then(function (response) {
+            window.alert("hii")
+            console.log(JSON.stringify(response.data));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
 
         var axios = require('axios');
         var data = JSON.stringify({
-          "eventLen": 15,
+          "eventLen": cookie.get("inputemails").length,
           "schedules": allEmailschedules
         });
-
+        window.alert(data)
         var config = {
-          method: 'get',
+          method: 'post',
           url: 'localhost:8080/merge',
-          headers: { 
-            'Content-Type': 'application/json'
-          },
+          headers: {},
           data : data
         };
 
 
-        
+        const setState = this.setState.bind(this);
+
         axios(config)
         .then(function (response) {
           var raw_schedule = response.data.schedule;
