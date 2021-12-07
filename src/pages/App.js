@@ -38,6 +38,7 @@ function tryy(){
       const user = userCredential.user;
       const token = userCredential.user.accessToken;
       cookie.set('idToken', token, { path: '/' });
+      cookie.set('email', userEmail, { path: '/' });
       window.alert("id token: " + cookie.get('idToken'));
       var axios = require('axios');
       var data = JSON.stringify({
