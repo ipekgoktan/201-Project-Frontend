@@ -38,35 +38,46 @@ function tryy(){
     window.alert("Passwords do not match");
     return;
   }
+  
 
   window.alert(userEmail + ' ' + userPass);
   const auth = getAuth();
   var axios = require('axios');
   var data = '';
-
   
   createUserWithEmailAndPassword(auth, userEmail, userPass)
     .then((userCredential) => {
       console.log(userCredential)
+      window.alert("hi")
+      console.log("hi")
       const user = userCredential.user;
-      window.location.replace(`/App`);
+      var axios = require('axios');
+      var data = '';
       var config = {
         method: 'post',
         url: 'https://uofschedulingconflictsapi.herokuapp.com/api/account',
         headers: { 
           'Content-Type': 'application/json', 
-          'Authorization': 'Bearer' + auth
+          'Authorization': 'Bearer '+ user.getIdToken()
         },
         data : data
       };
-    
-      axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      window.alert("hiii")
+
+      //axios(config)
+      window.alert("hiiiiiiiii")
+      var response = axios(config)
+      console.log(JSON.stringify(response));
+      //console.log(JSON.stringify(response.data));
+      // .then (function (response) {
+      //   window.alert("hey")
+      //   console.log(JSON.stringify(data));
+      // })
+      // .catch(function (error) {
+      //  console.log(error);
+      // });
+
+      //window.location.replace(`/App`);
       //user is logged in here
       // ...
     })

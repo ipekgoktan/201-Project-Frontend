@@ -11,6 +11,11 @@ import Groupschedule from './pages/Groupschedule';
 import Signup from './pages/Signup';
 import Search from './pages/Search';
 
+// var express = require('express')
+// var app = express()
+// var cors = require('cors')
+
+// app.use(cors()) // Use this after the variable declaration
 //const rootElement = document.getElementById("root");
 ReactDOM.render(
   

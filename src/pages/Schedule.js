@@ -8,7 +8,6 @@ const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
 
 function SubmitTable(){
     var TableArray = []
-    //var d = document.getElementById(2);
     for(let i =0; i < 91; i++){
         var t = document.getElementById(i).checked
         if(t){
@@ -20,24 +19,6 @@ function SubmitTable(){
 
     }
     window.alert( TableArray );
-
-
-    /*
-for (var t = 1, row; t< 7; t++) {
-    var d = document.getElementById(t)
-    if(d.state.isChecked){
-        TableArray.push(1);
-    }
-    else{
-        TableArray.push(0);
-    }
-
-}
-
-
-window.alert(TableArray)
-
-*/
 }
 
 

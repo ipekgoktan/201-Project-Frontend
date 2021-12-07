@@ -29,31 +29,9 @@ const cookies = new Cookies();
 
 
 function tryy(){
-  //var userEmail = document.getElementlById("UsernameBox").value;
   var userEmail = document.getElementById("UsernameBox").value;
   var userPass = document.getElementById("PasswordBox").value;
   const auth = getAuth();
-
-  // var axios = require('axios');
-  // var data = '';
-
-  // var config = {
-  //   method: 'post',
-  //   url: 'https://uofschedulingconflictsapi.herokuapp.com/api/account',
-  //   headers: { 
-  //     'Content-Type': 'application/json', 
-  //     'Authorization': 'Bearer <jwt token>'
-  //   },
-  //   data : data
-  // };
-
-  // axios(config)
-  // .then(function (response) {
-  //   console.log(JSON.stringify(response.data));
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
 
   signInWithEmailAndPassword(auth, userEmail, userPass)
     .then((userCredential) => {
@@ -73,11 +51,6 @@ function tryy(){
 }
 
 function App() {
-  // const [token, setToken] = useState();
-
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
 
   return (
     <div className="App">
