@@ -38,6 +38,7 @@ class App extends Component {
         var axios = require("axios");
         var data = { emailList: cookie.get("inputemails") };
         console.log(cookie.get("inputemails"));
+        //window.alert(cookie.get("inputemails"));
         var config = {
             method: "post",
             url: "https://uofschedulingconflictsapi.herokuapp.com/api/schedules",
@@ -48,9 +49,9 @@ class App extends Component {
         axios(config)
             .then(function (response) {
                 var raw_schedule = response.data.scheduleList;
-                console.log(cookie.get("inputtime"));
+                //console.log(cookie.get("inputtime"));
                 var data = {
-                    eventLen: cookie.get("inputtime"),
+                    eventLen: 60,
                     schedules: raw_schedule,
                 };
                 var merged_schedule = [];
@@ -69,6 +70,7 @@ class App extends Component {
                 while (merged_schedule.length > 0)
                     body.push(merged_schedule.splice(raw_schedule, 13));
                 setState({ body: body });
+                //window.alert(JSON.stringify(body));
             })
             .catch(function (error) {
                 console.log(error);
