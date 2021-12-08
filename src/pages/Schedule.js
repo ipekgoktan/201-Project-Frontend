@@ -67,6 +67,7 @@ function SubmitTable() {
             console.log(error);
         });
     console.log(TableArray);
+    window.location.replace('/Accmenu');
 }
 
 class App extends Component {

@@ -11,10 +11,8 @@ import "./Search.css";
 import Groupschedule from "./Groupschedule";
 
 function tryy() {
-    var inputtimes = document.getElementById("times").value;
     var inputemails = document.getElementById("emails").value;
     var cookie = new Cookie();
-    var inputTime = inputtimes;
     var inputEmailsarray = inputemails.match(
         /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi
     );
@@ -27,7 +25,6 @@ function tryy() {
     inputEmailsarray.push(cookie.get("email"));
     }
     cookie.set("inputemails", inputEmailsarray, { path: "/" });
-    cookie.set("inputtime", inputTime, { path: "/" });
 }
 
 function Search() {
