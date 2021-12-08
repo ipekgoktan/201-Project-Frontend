@@ -44,7 +44,7 @@ function tryy(){
       const token = userCredential.user.accessToken;
       cookie.set('idToken', token, { path: '/' });
       cookie.set('email', userEmail, { path: '/' });
-      window.alert("id token: " + cookie.get('idToken'));
+      //window.alert("id token: " + cookie.get('idToken'));
       var axios = require('axios');
       var data = JSON.stringify({
         "email": userEmail,
@@ -60,7 +60,7 @@ function tryy(){
         },
         data : data
       };
-      window.alert("TEST1");
+      //window.alert("TEST1");
       axios(config)
           .then(function (response) {
               console.log(JSON.stringify(response.data));
