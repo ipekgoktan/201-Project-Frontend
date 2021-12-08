@@ -29,7 +29,7 @@
 }
 
 .App-items {
-  width: 40%;
+  width: 30%;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;

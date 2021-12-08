@@ -1,4 +1,5 @@
 import logo from './../images/logo.svg';
+import guestButton from './../images/GuestButton.svg';
 import title from './../images/title.svg';
 import enteruser from './../images/enteruser.svg';
 import enterpwd from './../images/enterpwd.svg';
@@ -103,10 +104,9 @@ function App() {
         <Link to={`/Signup`}>
           <img src={signup} className="App-items" />
         </Link>
-        <p>guest
-        </p>
+    
         <Link to={`/Search`}>
-          <img src={signup} className="App-items" onClick={guestLogIn} />
+          <img src={guestButton} className="App-items" onClick={guestLogIn} />
         </Link>
 
       </header>
