@@ -100,15 +100,17 @@ function App() {
           <input type="text" className= "InputBox" id="PasswordBox"></input>
         </form>
 
-        <img src={login} className="App-items" onClick={tryy} />
+<div>
+        <img src={login} className="test" onClick={tryy} />
+
         <Link to={`/Signup`}>
-          <img src={signup} className="App-items" />
+          <img src={signup} className="test" />
         </Link>
     
         <Link to={`/Search`}>
-          <img src={guestButton} className="App-items" onClick={guestLogIn} />
+          <img src={guestButton} className="test" onClick={guestLogIn} />
         </Link>
-
+        </div>
       </header>
     </div>
   );

@@ -1,6 +1,8 @@
 import "./Schedule.css";
 import React, { Component, useState } from "react";
 import Cookie from "universal-cookie";
+import submitbutton from './../images/SubmitButton.svg';
+
 
 var number = 0;
 const days = [
@@ -140,9 +142,8 @@ class App extends Component {
                             body={this.state.body}
                         />
                     </div>
-                    <button type="button" id="BUTTON" onClick={SubmitTable}>
-                        Submit
-                    </button>
+                    <img src={submitbutton} className="App-items" id="BUTTON" onClick={SubmitTable} />
+ 
                 </header>
             </div>
         );
