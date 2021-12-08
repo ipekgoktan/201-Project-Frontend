@@ -64,12 +64,14 @@ function SubmitTable() {
     axios(config)
         .then(function (response) {
             console.log(JSON.stringify(response.data));
+            window.location.replace('/Accmenu');
         })
         .catch(function (error) {
             console.log(error);
+            window.alert("error saving your schedule:" + error);
         });
     console.log(TableArray);
-    window.location.replace('/Accmenu');
+
 }
 
 class App extends Component {
