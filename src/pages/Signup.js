@@ -41,7 +41,7 @@ function tryy() {
         return;
     }
 
-    window.alert(userEmail + " " + userPass);
+    //window.alert(userEmail + " " + userPass);
     const auth = getAuth();
     var axios = require("axios");
     var data = "";
