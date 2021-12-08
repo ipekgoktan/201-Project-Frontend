@@ -27,6 +27,10 @@ const analytics = getAnalytics(app);
 const cookie = new Cookie();
 
 
+function guestLogIn(){
+  cookie.set('email', "null", { path: '/' });
+}
+
 function tryy(){
   var userEmail = document.getElementById("UsernameBox").value;
   var userPass = document.getElementById("PasswordBox").value;
@@ -98,6 +102,11 @@ function App() {
         <img src={login} className="App-items" onClick={tryy} />
         <Link to={`/Signup`}>
           <img src={signup} className="App-items" />
+        </Link>
+        <p>guest
+        </p>
+        <Link to={`/Search`}>
+          <img src={signup} className="App-items" onClick={guestLogIn} />
         </Link>
 
       </header>

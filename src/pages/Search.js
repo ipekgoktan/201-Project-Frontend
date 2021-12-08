@@ -22,8 +22,10 @@ function tryy() {
     if (inputEmailsarray == null) {
         inputEmailsarray = [];
     }
-    inputEmailsarray.push(cookie.get("email"));
 
+    if(cookie.get("email") != null){
+    inputEmailsarray.push(cookie.get("email"));
+    }
     cookie.set("inputemails", inputEmailsarray, { path: "/" });
     cookie.set("inputtime", inputTime, { path: "/" });
 }
