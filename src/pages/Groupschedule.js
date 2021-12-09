@@ -37,6 +37,7 @@ class App extends Component {
         var allEmailschedules = [];
         var axios = require("axios");
         var data = { emailList: cookie.get("inputemails") };
+        console.log(data);
         console.log(cookie.get("inputemails"));
         //window.alert(cookie.get("inputemails"));
         var config = {
@@ -54,22 +55,33 @@ class App extends Component {
                     eventLen: 60,
                     schedules: raw_schedule,
                 };
-                var merged_schedule = [];
-                for (var i = 0; i < raw_schedule[0].length; i++) {
-                    var isFree = 1;
-                    for (var j = 0; j < raw_schedule.length; j++) {
-                        if (raw_schedule[j][i] == 0) {
-                            isFree = 0;
-                            break;
-                        }
-                    }
-                    merged_schedule.push(isFree);
-                }
+                var config = {
+                    method: "post",
+                    url: "/merge",
+                    headers: {},
+                    data: data,
+                };
+                axios(config).then((response) => {
+                    console.log(response.data);
+                    var merged_schedule = response.data.mergedSchedule;
+                    // for (var i = 0; i < raw_schedule[0].length; i++) {
+                    //     var isFree = 1;
+                    //     for (var j = 0; j < raw_schedule.length; j++) {
+                    //         if (raw_schedule[j][i] == 0) {
+                    //             isFree = 0;
+                    //             break;
+                    //         }
+                    //     }
+                    //     merged_schedule.push(isFree);
+                    // }
 
-                var body = [];
-                while (merged_schedule.length > 0)
-                    body.push(merged_schedule.splice(raw_schedule, 13));
-                setState({ body: body });
+                    var body = [];
+                    while (merged_schedule.length > 0)
+                        body.push(merged_schedule.splice(raw_schedule, 13));
+                    setState({ body: body });
+                });
+                console.log(raw_schedule);
+
                 //window.alert(JSON.stringify(body));
             })
             .catch(function (error) {
